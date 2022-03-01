@@ -1,0 +1,4 @@
+discord_webhook
+colorama
+pycryptodome
+pypiwin32
